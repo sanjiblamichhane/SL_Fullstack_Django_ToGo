@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pages.apps.PagesConfig', ## added by SL for Pages App
+    'blog.apps.BlogConfig', ## added by SL for Blog
     'posts.apps.PostsConfig', ## added by SL for Posts app
 ]
 
