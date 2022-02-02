@@ -6,3 +6,6 @@ class HomePageView(TemplateView):
     
 class AccountPageView(TemplateView):
     template_name = 'account.html'
+
+class BlogPageView(TemplateView):
+    template_name = 'blog.html'
