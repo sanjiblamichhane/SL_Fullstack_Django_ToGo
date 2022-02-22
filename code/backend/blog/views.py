@@ -1,4 +1,3 @@
-from pdb import post_mortem
 from django.views.generic import ListView, DetailView
 
 from .models import BlogPost
