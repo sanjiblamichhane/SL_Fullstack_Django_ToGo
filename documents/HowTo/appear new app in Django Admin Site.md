@@ -5,4 +5,4 @@
 `$ python manage.py migrate blog `\
 Here, blog is our new app.
 
-- Don't forget to register the app in admin.py
+- Don't forget to register the app in admin
