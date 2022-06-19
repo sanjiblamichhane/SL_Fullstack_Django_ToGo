@@ -1,20 +1,33 @@
-{% load static %}
+{% load static  %}
 <html>
     <head>
-        <title>SL Cool Website </title>
-        <link href="{% static 'css/base.css' %}" rel = stylesheet>
+        <title> SL Web </title>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400"rel="stylesheet">
+        <link href="{% static 'css/base.css' %}" rel = "stylesheet">
     </head>
     <body>
-        <header>
-            <a href = "{% url 'home' %}"> Home </a> |
-            <a href = {% url 'account' %}> Account </a> | 
-            <a href = "{% url 'blog' %}"> Blog </a> | 
-        </header>
+        <div>
+            <header>
+                <div class="nav-left">
+                    <h1><a href="{% url 'home' %}" > Home  </a>
+                    <a href="{% url 'blog' %}" > Blog  </a></h1>  
+                </div>
+            <div class = "nav-right">
+                    <h1><a href="{% url 'account' %}" > Account  </a></h1> 
+            </div>
+            </header>
+                <div>
+                    {% if user.is_authenticated %}
+                        <p> Hi {{ user.username }} </p>
+                        <p><a href="{% url 'logout' %}" > Log Out </a></p>
+                    {% else %}
+                        <p> You are not logged in. </p>
+                        <a href="{% url 'login' %}"> Log In </a>
+                    {% endif %}
+                </div>
+            {% block content %}
+            {% endblock content %}
+        </div>
     </body>
-    <div>
-        {% block content %}
-        {% endblock content %}
-    </div>
+ </html>
 
-
-</html>

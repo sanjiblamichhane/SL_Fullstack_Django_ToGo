@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for post in object_list %}
-        <h1> HomePage </h1>
-            <ul>
-                {% for post in all_posts_list%}
-                    <li>{{post.text}} </li>
-                {% endfor %}
-            </ul>
-    {% endfor %}
+<h1> Home Page </h1>
+{% comment %} {% if user.is_authenticated %} {% endcomment %}
+    {% comment %} Hi {{ user.username }} {% endcomment %}
+    {% comment %} <p><a href = "{% url 'logout' %}"> Log Out </a></p> {% endcomment %}
+{% comment %} {% else %} {% endcomment %}
+    {% comment %} <p>You are not logged in</p> {% endcomment %}
+    {% comment %} <a href="{% url 'login' %}">Log In</a> | {% endcomment %}
+    {% comment %} <a href="{% url 'signup' %}">Sign Up</a> {% endcomment %}
+{% comment %} {% endif %} {% endcomment %}
 
+    {% for post in object_list %}
+        <div>
+            <h2><a>{{ post.title }}</a></h2>
+            <p> {{ post.body}} </p>
+        </div>
+    {% endfor %}
 {% endblock content %}
